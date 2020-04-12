@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgb(40, 44, 52, 0.9)",
     maxWidth: "80%",
     textAlign: "center",
-    padding: "10px",
     color: "#fff",
     outline: 'none'
   },
@@ -39,7 +38,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
   },
   image:{
-    width: "90%"
+    width: "90%",
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+
+    },
   },
   closeButton:{
     fontSize: "35px",
@@ -80,7 +83,7 @@ export default function WorkModal(props) {
           <div className={classes.paper}>
             <Box display="flex" textAlign="center">
               <Typography className={classes.title}>{summaryContent.workTitle}</Typography>
-              <Button marginRight="8px" onClick={handleClose}>
+              <Button marginright="8px" onClick={handleClose}>
                 <CloseIcon className={classes.closeButton} />
               </Button>
             </Box>
@@ -140,7 +143,7 @@ export default function WorkModal(props) {
                     )
                   }     
                 </Box>
-                <Box marginTop="60px">
+                <Box marginTop="40px">
                 <Grid container spacing={1} >
                   <Grid item sm={6} xs={12}>
                     <Box>
@@ -161,7 +164,6 @@ export default function WorkModal(props) {
                     <Box>
                       <Button 
                       href={summaryContent.githubUrl}
-                      marginLeft="10px"
                       variant="contained"
                       color="primary"
                       size="large"
