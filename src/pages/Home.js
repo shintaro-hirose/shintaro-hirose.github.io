@@ -20,6 +20,7 @@ import {workContents} from '../texts/text'
 const useStyles = makeStyles(() => ({
     logo:{
         width: "250px",
+        marginTop: '20px'
     },
     title:{
         fontSize: "30px",
@@ -29,7 +30,7 @@ const useStyles = makeStyles(() => ({
     },
     container:{
         maxWidth: "1000px",
-        margin: "20px auto 0 auto"
+        margin: "0 auto"
     }
 }));
 
@@ -90,14 +91,11 @@ function Home() {
                         summaryContent={workContents[4]}
                         />
                     </Grid>
-                    {/* <Grid item sm={4} xs={12}>
-                        <WorkCard
-                        summaryContent={{
-                            summaryImage: image3,
-                            workTitle: "React Number Guess"
-                        }}
+                    <Grid item sm={4} xs={12}>
+                        <WorkCard 
+                        summaryContent={workContents[5]}
                         />
-                    </Grid> */}
+                    </Grid>
                 </Grid>
             </Box>
         </div>

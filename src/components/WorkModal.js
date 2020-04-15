@@ -26,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "80%",
     textAlign: "center",
     color: "#fff",
-    outline: 'none'
+    outline: 'none',
+    padding:"10px"
   },
   title:{
     fontSize: "30px",
