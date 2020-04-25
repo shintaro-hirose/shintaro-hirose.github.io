@@ -21,7 +21,7 @@ export const workContents = [
         summaryImage: "https://user-images.githubusercontent.com/48212107/79313331-2348e800-7f3b-11ea-83e6-885d6a532966.png",
         workExplain: "TMDB APIを利用して映画の検索、キーワード検索、予告の閲覧などができます。",
         demoUrl: "https://horror-movie-db.web.app/",
-        githubUrl:"",
+        githubUrl:"https://github.com/shintaro-hirose/horror-movie-db-ja",
         char1:"redux-thunk, axiosを用いてWeb APIでjson形式のデータを取得",
         char2:"ReactによるSPA, レスポンシブ対応でネイティブアプリのような挙動を実現。",
         char3:"Reduxによる状態管理でデータfetchの最適化、UIの改善",

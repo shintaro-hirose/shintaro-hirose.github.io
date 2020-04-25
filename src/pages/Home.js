@@ -29,7 +29,8 @@ const useStyles = makeStyles(() => ({
         marginTop:"40px"
     },
     container:{
-        maxWidth: "1000px",
+        width: "90%",
+        maxWidth: '1000px',
         margin: "0 auto"
     }
 }));
@@ -63,7 +64,7 @@ function Home() {
             </Typography>
             <hr size="2" color="#62DAFB"></hr>
             <Box className={classes.container}>
-                <Grid container spacing={10}>
+                <Grid container spacing={0}>
                     <Grid item sm={4} xs={12}>
                         <WorkCard 
                         summaryContent={workContents[0]}
@@ -80,7 +81,7 @@ function Home() {
                         />
                     </Grid>
                 </Grid>
-                <Grid container spacing={10}>
+                <Grid container spacing={0}>
                     <Grid item sm={4} xs={12}>
                         <WorkCard 
                         summaryContent={workContents[3]}
