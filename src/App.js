@@ -21,6 +21,7 @@ function App() {
           <Home />
         </header>
       </div>
+      <footer></footer>
     </ThemeProvider>
   );
 }

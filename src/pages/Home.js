@@ -31,7 +31,8 @@ const useStyles = makeStyles(() => ({
     container:{
         width: "90%",
         maxWidth: '1000px',
-        margin: "0 auto"
+        margin: "0 auto",
+        paddingBottom: '50px',
     }
 }));
 
