@@ -12,10 +12,12 @@ import Tooltip from '@material-ui/core/Tooltip';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 //components
-import WorkCard from '../components/WorkCard'
+import WorkCard from '../components/WorkCard';
+import CubeCard from '../components/CubeCard';
 
 //work texts
-import {workContents} from '../texts/text'
+import {workContents} from '../texts/text';
+import {cubeContents} from '../texts/cubeContent';
 
 const useStyles = makeStyles(() => ({
     logo:{
@@ -98,6 +100,24 @@ function Home() {
                         summaryContent={workContents[5]}
                         />
                     </Grid>
+                </Grid>
+            </Box>
+            <Typography className={classes.title}>
+                Cube Collection
+            </Typography>
+            <hr size="2" color="#62DAFB"></hr>
+            <br/>
+            <Box className={classes.container}>
+                <Grid container spacing={0}>
+                    {cubeContents.map((data,index) => {
+                        return (
+                            <Grid item sm={2} xs={6} key={index}>
+                                <CubeCard
+                                summaryContent={data}
+                                />
+                            </Grid>
+                        );
+                    })}
                 </Grid>
             </Box>
         </div>

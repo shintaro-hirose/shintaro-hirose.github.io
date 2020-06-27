@@ -3,12 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import WorkModal from './WorkModal'
-
-
-
-//material-ui
 
 function WorkCard(props) {
     const [open, setOpen] = useState(false);
