@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 //images
 import logo from '../images/portfolio-logo-2.svg';
-
 //material-ui
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -10,14 +9,15 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import GitHubIcon from '@material-ui/icons/GitHub';
-
 //components
 import WorkCard from '../components/WorkCard';
 import CubeCard from '../components/CubeCard';
-
+import QiitaPostCard from '../components/QiitaPostCard';
 //work texts
 import {workContents} from '../texts/text';
 import {cubeContents} from '../texts/cubeContent';
+//axios
+import axios from 'axios';
 
 const useStyles = makeStyles(() => ({
     logo:{
@@ -40,6 +40,24 @@ const useStyles = makeStyles(() => ({
 
 function Home() {
     const classes = useStyles();
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [qiitaPosts, setQiitaPosts] = useState(null);
+
+    useEffect(() => {
+        const getQiitaPosts = async () => {
+            setIsError(false);
+            setIsLoading(true);
+            try {
+                const response = await axios.get('https://qiita.com/api/v2/users/shinhiro/items');
+                setQiitaPosts(response.data);
+            } catch (error) {
+                 setIsError(true);
+            }
+            setIsLoading(false);
+        }
+        getQiitaPosts();
+    }, [])
     return (
         <div>
             <Box className={classes.container} display="flex">
@@ -68,39 +86,30 @@ function Home() {
             <hr size="2" color="#62DAFB"></hr>
             <Box className={classes.container}>
                 <Grid container spacing={0}>
-                    <Grid item sm={4} xs={12}>
-                        <WorkCard 
-                        summaryContent={workContents[0]}
-                        />
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <WorkCard 
-                        summaryContent={workContents[1]}
-                        />
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <WorkCard
-                        summaryContent={workContents[2]}
-                        />
-                    </Grid>
+                    {workContents.map((data,index) => {
+                        return (
+                            <Grid item sm={4} xs={12} key={index}>
+                                <WorkCard
+                                summaryContent={data}
+                                />
+                            </Grid>
+                        );
+                    })}
                 </Grid>
-                <Grid container spacing={0}>
-                    <Grid item sm={4} xs={12}>
-                        <WorkCard 
-                        summaryContent={workContents[3]}
+            </Box>
+            <Typography className={classes.title}>
+                Qiita Posts
+            </Typography>
+            <hr size="2" color="#62DAFB"></hr>
+            <Box className={classes.container}>
+                {!isLoading && qiitaPosts && qiitaPosts.map(data => {
+                    return (
+                        <QiitaPostCard
+                        content={data}
+                        key={data.id}
                         />
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <WorkCard 
-                        summaryContent={workContents[4]}
-                        />
-                    </Grid>
-                    <Grid item sm={4} xs={12}>
-                        <WorkCard 
-                        summaryContent={workContents[5]}
-                        />
-                    </Grid>
-                </Grid>
+                    );
+                })}
             </Box>
             <Typography className={classes.title}>
                 Cube Collection
