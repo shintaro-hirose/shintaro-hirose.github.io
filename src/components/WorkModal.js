@@ -157,7 +157,7 @@ export default function WorkModal(props) {
                       rel="noopener noreferrer"
                       >
                         <LanguageIcon />
-                        {`　デモを見る`}
+                        {`　サイトを見る`}
                       </Button>
                     </Box>
                   </Grid>

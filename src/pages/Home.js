@@ -11,11 +11,12 @@ import Tooltip from '@material-ui/core/Tooltip';
 import GitHubIcon from '@material-ui/icons/GitHub';
 //components
 import WorkCard from '../components/WorkCard';
-import CubeCard from '../components/CubeCard';
+// import CubeCard from '../components/CubeCard';
 import QiitaPostCard from '../components/QiitaPostCard';
+import ScrollToTopFloatingButton from '../components/ScrollToTopFloatingButton';
 //work texts
 import {workContents} from '../texts/text';
-import {cubeContents} from '../texts/cubeContent';
+// import {cubeContents} from '../texts/cubeContent';
 //axios
 import axios from 'axios';
 
@@ -102,7 +103,7 @@ function Home() {
             </Typography>
             <hr size="2" color="#62DAFB"></hr>
             <Box className={classes.container}>
-                {!isLoading && qiitaPosts && qiitaPosts.map(data => {
+                {!isError && !isLoading && qiitaPosts && qiitaPosts.map(data => {
                     return (
                         <QiitaPostCard
                         content={data}
@@ -129,6 +130,7 @@ function Home() {
                     })}
                 </Grid>
             </Box> */}
+            <ScrollToTopFloatingButton />
         </div>
     )
 }
