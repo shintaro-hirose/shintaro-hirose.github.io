@@ -111,12 +111,12 @@ function Home() {
                     );
                 })}
             </Box>
-            <Typography className={classes.title}>
+            {/* <Typography className={classes.title}>
                 Cube Collection
             </Typography>
             <hr size="2" color="#62DAFB"></hr>
-            <br/>
-            <Box className={classes.container}>
+            <br/> */}
+            {/* <Box className={classes.container}>
                 <Grid container spacing={0}>
                     {cubeContents.map((data,index) => {
                         return (
@@ -128,7 +128,7 @@ function Home() {
                         );
                     })}
                 </Grid>
-            </Box>
+            </Box> */}
         </div>
     )
 }
